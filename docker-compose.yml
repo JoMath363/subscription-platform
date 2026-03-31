@@ -1,0 +1,14 @@
+services:
+  backend:
+    build:
+      context: ./backend/Api.Solution
+    container_name: supporter-backend
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: supporter-frontend
+    ports:
+      - "8081:80"
