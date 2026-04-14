@@ -1,6 +1,6 @@
-# Subscription Plataform
+# Uptime Monitor
 
-This plataform is a "patron-like" application where fans of a creator pay a monthly subscription to support this creator and in exchange he post exclusive content for them. 
+This platform is an uptime monitoring application that periodically checks websites and services to ensure they are online and performing correctly. 
 
 ## Stack
 - Angular
