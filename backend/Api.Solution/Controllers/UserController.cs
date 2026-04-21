@@ -2,9 +2,7 @@ using Api.Solution.Data;
 using Api.Solution.Models;
 using Api.Solution.Models.DTOs;
 using Api.Solution.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.Solution.Controllers
 {
@@ -55,13 +53,6 @@ namespace Api.Solution.Controllers
             var token = _authService.GenerateToken(user);
 
             return Ok(new { token });
-        }
-
-        [HttpPost("/test")]
-        [Authorize]
-        public async Task<IActionResult> test([FromBody] AuthDto dto)
-        {
-            return Ok("You are logged in!");
         }
     }
 }

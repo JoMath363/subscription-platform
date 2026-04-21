@@ -15,6 +15,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Authentication
+var jwtSecretKey = builder.Configuration["JwtSettings:SecretKey"] ?? throw new Exception("Missing SecretKey in JwtSettings");
+var jwtIssuer = builder.Configuration["JwtSettings:Issuer"] ?? throw new Exception("Missing Issuer in JwtSettings");
+var jwtAudience = builder.Configuration["JwtSettings:Audience"] ?? throw new Exception("Missing Audience in JwtSettings");
+var jwtExpiryMinutes = builder.Configuration["JwtSettings:ExpiryMinutes"] ?? throw new Exception("Missing ExpiryMinutes in JwtSettings");
+
+var jwtSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey));
+
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
@@ -24,9 +31,9 @@ builder.Services.AddAuthentication("Bearer")
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
-            ValidAudience = builder.Configuration["JwtSettings:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]))
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtAudience,
+            IssuerSigningKey = jwtSigningKey
         };
     });
 

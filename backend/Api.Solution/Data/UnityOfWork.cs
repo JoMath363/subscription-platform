@@ -1,7 +1,4 @@
-﻿using Api.Solution.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace Api.Solution.Data
+﻿namespace Api.Solution.Data
 {
     public class UnityOfWork
     {

@@ -1,6 +1,5 @@
 ﻿using Api.Solution.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace Api.Solution.Data
 {
