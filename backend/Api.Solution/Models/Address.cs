@@ -28,6 +28,10 @@ namespace Api.Solution.Models
 
         [Required(ErrorMessage = "{0} is required.")]
         public required string Country { get; set; }
+
+        [Required(ErrorMessage = "{0} is required.")]
+        public required Guid UserId { get; set; }
+        public required User User { get; set; }
     }
 }
  

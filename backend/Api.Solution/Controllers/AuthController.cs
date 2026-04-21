@@ -21,27 +21,27 @@ namespace Api.Solution.Controllers
         }
 
 
-        [HttpPost("/register")]
-        public async Task<IActionResult> Register([FromBody] AuthDto dto)
-        {
-            User newUser = new User() { 
-                Name = dto.Name,
-                Password = dto.Password,
-            };
+        //[HttpPost("/register")]
+        //public async Task<IActionResult> Register([FromBody] AuthDto dto)
+        //{
+        //    User newUser = new User() { 
+        //        Name = dto.Name,
+        //        Password = dto.Password,
+        //    };
 
-            await _context.Users.AddAsync(newUser);
+        //    await _context.Users.AddAsync(newUser);
 
-            await _context.SaveChangesAsync();
+        //    await _context.SaveChangesAsync();
 
-            return Ok(newUser);
-        }
+        //    return Ok(newUser);
+        //}
 
-        [HttpGet("/users")]
-        public async Task<IActionResult> GetAll()
-        {
-            List<User> usersList = await _context.Users.ToListAsync();
+        //[HttpGet("/users")]
+        //public async Task<IActionResult> GetAll()
+        //{
+        //    List<User> usersList = await _context.Users.ToListAsync();
 
-            return Ok(usersList);
-        }
+        //    return Ok(usersList);
+        //}
     }
 }

@@ -1,13 +1,20 @@
-﻿namespace Api.Solution.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Api.Solution.Models
 {
     public class User
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
-        public required string Name { get; set; }
-        public required string Password { get; set; }
+        [Required(ErrorMessage = "{0} is required.")]
+        [EmailAddressAttribute]
+        public required string Email { get; set; }
 
-        public List<Post>? Posts { get; set; }
+        [Required(ErrorMessage = "{0} is required.")]
+        public required string PasswordHash { get; set; }
+
+        public Address? Address { get; set; } 
+        public List<Project>? Projects { get; set; }
 
     }
 }

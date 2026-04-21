@@ -1,13 +1,15 @@
 ﻿using Api.Solution.Data;
-using Api.Solution.Models;
-using Api.Solution.Services.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Solution.Services
 {
-    public class UserService : CrudService<User>
+    public class UserService
     {
-        public UserService(AppDbContext context) : base(context)
+        protected readonly AppDbContext _context;
+
+        public UserService(AppDbContext context) 
         {
+            _context = context;
         }
     }
 }
