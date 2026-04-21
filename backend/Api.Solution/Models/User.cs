@@ -7,7 +7,7 @@ namespace Api.Solution.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required(ErrorMessage = "{0} is required.")]
-        [EmailAddressAttribute]
+        [EmailAddress]
         public required string Email { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]

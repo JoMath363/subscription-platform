@@ -2,23 +2,23 @@
 
 namespace Api.Solution.Models
 {
-    public class Monitor
+    public class UpMonitor
     {
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required(ErrorMessage = "{0} is required.")]
-        [MaxLengthAttribute(50, ErrorMessage = "{0} cannot exceed 50 characters")]
+        [MaxLength(50, ErrorMessage = "{0} cannot exceed 50 characters")]
         public required string Title { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]
-        [UrlAttribute]
+        [Url]
         public required string Url { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]
         public required string Status { get; set; }
 
         [Required(ErrorMessage = "{0} is required.")]
-        public required Guid WatcherColletionId { get; set; }
-        public required Project WatcherColletion { get; set; }
+        public required Guid ProjectId { get; set; }
+        public required Project Project { get; set; }
     }
 }
